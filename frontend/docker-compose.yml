@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   backend:
     build: ./backend
@@ -9,7 +11,7 @@ services:
       DB_USER: root
       DB_PASSWORD: root
       DB_NAME: flaskdb
-    depends-on:
+    depends_on:
       - db
 
   frontend:
@@ -17,7 +19,7 @@ services:
     image: chaimae2006/frontend-app:latest
     ports:
       - "3000:80"
-    depends-on:
+    depends_on:
       - backend
 
   db:
@@ -29,5 +31,3 @@ services:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3307:3306"
-
-    
