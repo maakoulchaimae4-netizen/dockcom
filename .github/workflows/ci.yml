@@ -21,7 +21,7 @@ jobs:
       - name: Build backend
         run: docker build -t chaimae2006/flask-api ./backend
 
-      - name: Build frontend
+      - name: Build front
         run: docker build -t chaimae2006/frontend-app ./frontend
 
       - name: Push backend
