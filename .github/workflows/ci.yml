@@ -1,4 +1,4 @@
-name: Docker CI/CD
+name: Docker Compose
 
 on:
   push:
@@ -9,23 +9,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout du code
-      uses: actions/checkout@v4
+      - name: Checkout du code
+        uses: actions/checkout@v4
 
-    - name: Login Docker Hub
-      uses: docker/login-action@v3
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build backend
-      run: docker build -t chaimae2006/flask-api ./backend
+      - name: Build backend
+        run: docker build -t oumeyma111/flask-api ./backend
 
-    - name: Build frontend
-      run: docker build -t chaimae2006/frontend-app ./frontend
+      - name: Build frontend
+        run: docker build -t oumeyma111/frontend-app ./frontend
 
-    - name: Push backend
-      run: docker push chaimae2006/flask-api
+      - name: Push backend
+        run: docker push oumeyma111/flask-api
 
-    - name: Push frontend
-      run: docker push chaimae2006/frontend-app
+      - name: Push frontend
+        run: docker push oumeyma111/frontend-app
